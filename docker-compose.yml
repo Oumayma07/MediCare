@@ -2,26 +2,19 @@ services:
 
   mongodb:
     image: mongo
-
     ports:
       - "27017:27017"
 
   backend:
-
-    build: ./backend
-
+    build: ./mediCare-backend
     ports:
       - "8080:8080"
-
     depends_on:
       - mongodb
 
   frontend:
-
-    build: ./frontend
-
+    build: ./mediCare-web
     ports:
-      - "4200:4200"
-
+      - "4200:80"
     depends_on:
       - backend
